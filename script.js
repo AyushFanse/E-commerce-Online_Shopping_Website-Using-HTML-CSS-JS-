@@ -8,7 +8,7 @@ let product = [
         image:"Realme X50 Pro 5g.png",
     },
     {
-        name:"Xiaomi Redmi Note10 Pro Max",
+        name:"Redmi Note10 Pro Max",
         image:"Redmi Note 10 Pro Max.png",
     },
     {
