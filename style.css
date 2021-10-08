@@ -5,7 +5,10 @@ body{
     background: linear-gradient(to right, #0f0c29, #1c1747, #221d53, #181446, #110e38);
 }
 img{
-    height: 250px;
+    width: 100%;
+    min-height: 200px;;
+    max-height: 250px;
+    height: 100%;
 }
 .home{
     color: #b7acf5;
