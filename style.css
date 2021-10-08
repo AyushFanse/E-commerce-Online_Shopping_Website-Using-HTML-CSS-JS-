@@ -1,11 +1,11 @@
 body{
-    background: linear-gradient(to top, #959db4, #dfe2e7);
+    background:#777797;
 }
 .navbar-main{
     background: linear-gradient(to right, #0f0c29, #1c1747, #221d53, #181446, #110e38);
 }
 img{
-    height: 270px;
+    height: 250px;
 }
 .home{
     color: #b7acf5;
@@ -23,4 +23,12 @@ img{
 .jumbotron {
     background: linear-gradient(to bottom, #2a2b2c, #4d4e4e);
     color:rgb(255, 229, 80);
+}
+#searchBtn{
+    margin-left: 10px;
+}
+.warning{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
