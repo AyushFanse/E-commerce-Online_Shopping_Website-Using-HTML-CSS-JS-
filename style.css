@@ -1,0 +1,26 @@
+body{
+    background: linear-gradient(to top, #959db4, #dfe2e7);
+}
+.navbar-main{
+    background: linear-gradient(to right, #0f0c29, #1c1747, #221d53, #181446, #110e38);
+}
+img{
+    height: 270px;
+}
+.home{
+    color: #b7acf5;
+}
+.text{
+    color: #9dff00;
+}
+.home:hover,.text:hover{
+    color: #000000;
+}
+.displyItoms{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.jumbotron {
+    background: linear-gradient(to bottom, #232526, #414345);
+    color:rgb(255, 229, 80);
+}
