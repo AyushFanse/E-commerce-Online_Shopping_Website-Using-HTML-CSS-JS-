@@ -24,6 +24,7 @@ img{
     margin-right: 25px;
 }
 .jumbotron {
+    width: 100%;
     background: linear-gradient(to bottom, #2a2b2c, #4d4e4e);
     color:rgb(255, 229, 80);
 }
