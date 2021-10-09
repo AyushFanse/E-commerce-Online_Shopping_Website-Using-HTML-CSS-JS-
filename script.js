@@ -4,8 +4,8 @@ let createData="";
 let newCreateData="";
 let product = [
     {
-        name:"Realme x50 pro 5g",
-        image:"img/Realme X50 Pro 5g.png",
+        name:"Realme x50 pro 5G",
+        image:"img/Realme X50 Pro 5G.png",
     },
     {
         name:"Redmi Note10 Pro Max",
