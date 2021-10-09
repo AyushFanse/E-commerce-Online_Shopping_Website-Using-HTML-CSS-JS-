@@ -90,7 +90,7 @@ body{
     color:rgb(255, 102, 0);
 }
 .badge{
-   width:6%;
+   width:4%;
    height:20%;
    font-size:50%;
 }
@@ -112,4 +112,3 @@ body{
 #dash{
  color:rgb(218, 49, 49);
 }
-
