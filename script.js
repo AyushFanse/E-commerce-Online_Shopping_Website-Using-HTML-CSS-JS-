@@ -131,7 +131,7 @@ var brands = [
         icon:"icons/samsung.png",
     },
     {
-        brandName:"OnePluse",
+        brandName:"OnePlus",
         icon:"icons/OnePlus.jpg",
     },
     {
