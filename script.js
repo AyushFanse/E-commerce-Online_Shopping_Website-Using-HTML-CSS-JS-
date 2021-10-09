@@ -48,41 +48,36 @@ let product = [
 
 
 function getData(){
-    const createData = 
-`<h4 class="d-flex justify-content-center">${product[x].name}</h4> 
-<div class="p-3 d-flex justify-content-center bg-image hover-zoom"> 
-<a href="https://fanse-online-shop.netlify.app/${product[x].image}"> <img src="${product[x].image}" alt="img"/></a> 
-</div> 
-<div class="p-3 d-flex justify-content-center"> 
-<button class="btn btn-warning" type="button" >Add to Cart</button> 
-</div> `;
-let newCreateData=document.createElement('div');
-newCreateData.setAttribute("class","col-md-4");
-newCreateData.innerHTML=createData;
-data.append(newCreateData);
+    const createData = `<h4 class="d-flex justify-content-center">${product[x].name}</h4> 
+                        <div class="p-3 d-flex justify-content-center bg-image hover-zoom"> 
+                        <a href="https://fanse-online-shop.netlify.app/${product[x].image}"> <img src="${product[x].image}" alt="img"/></a> 
+                        </div> 
+                        <div class="p-3 d-flex justify-content-center"> 
+                        <button class="btn btn-warning" type="button" >Add to Cart</button> 
+                        </div> `;
+    let newCreateData=document.createElement('div');
+    newCreateData.setAttribute("class","col-md-4");
+    newCreateData.innerHTML=createData;
+    data.append(newCreateData);
 }
-
-
 
 for (let i = 0; i < product.length; i++) {
     x=i;
     getData();
 };
 
-
 function search(){
-    // x="";
     data.innerHTML="";
     cap = searchData.value.toUpperCase();
-    for (let i=0; i<product.length; i++){
-        text=product[i].name;
-        console.log(text.toUpperCase().indexOf(cap));
-       if(text.toUpperCase().indexOf(cap)>-1){
-        x=i;
-        getData();
+        for (let i=0; i<product.length; i++){
+            text=product[i].name;
+            console.log(text.toUpperCase().indexOf(cap));
+               if(text.toUpperCase().indexOf(cap)>-1){
+                    x=i;
+                    getData();
+                }
+               else{
+                    createData="none";
+                }
+            }
         }
-       else{
-        createData="none";
-       }
-       }
-    }
