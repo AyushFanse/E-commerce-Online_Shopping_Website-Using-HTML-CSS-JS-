@@ -5,43 +5,43 @@ let newCreateData="";
 let product = [
     {
         name:"Realme x50 pro 5g",
-        image:"Realme X50 Pro 5g.png",
+        image:"img/Realme X50 Pro 5g.png",
     },
     {
         name:"Redmi Note10 Pro Max",
-        image:"Redmi Note 10 Pro Max.png",
+        image:"img/Redmi Note 10 Pro Max.png",
     },
     {
         name:"OnePlus 9 Pro 5G",
-        image:"OnePlus 9 Pro 5G.png",
+        image:"img/OnePlus 9 Pro 5G.png",
     },
     {
         name:"Realme 8i 5G",
-        image:"Realme 8i 5G.png",
+        image:"img/Realme 8i 5G.png",
     },
     {
         name:"POCO M3 Pro",
-        image:"POCO M3 Pro all.png",
+        image:"img/POCO M3 Pro all.png",
     },
     {
         name:"Motorola G40 Fusion",
-        image:"Motorola G40 Fusion.png",
+        image:"img/Motorola G40 Fusion.png",
     },
     {
         name:"ROG Phone 5 Ultimate",
-        image:"ROG Phone 5 Ultimate.png",
+        image:"img/ROG Phone 5 Ultimate.png",
     },
     {
         name:"iPhone 13 Pro Max",
-        image:"iPhone 13 Pro Max.png",
+        image:"img/iPhone 13 Pro Max.png",
     },
     {
         name:"ROG Phone 3",
-        image:"ROG Phone 3.png",
+        image:"img/ROG Phone 3.png",
     },
     {
         name:"ROG Phone 5s Pro",
-        image:"ROG Phone 5s Pro.png",
+        image:"img/ROG Phone 5s Pro.png",
     },
 ];
 
