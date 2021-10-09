@@ -13,18 +13,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="navbar-nav">
+<nav class="row navbar-nav">
     <div class="row navbar-main">
         <div class="col-md-4 d-flex justify-content-center p-2" >
-            <a href="#" class="p-2 nav-link text"><h2 class="border-bottom">Product</h2></a>
+            <a href="#" class="p-2 nav-link text"><h2 class="border-bottom">F<span id="A">A</span>NSE Shop</h2></a>
         </div>
         <div class="col-md-4 d-flex justify-content-center p-2">
             <a href="#" class="p-3 nav-link home">
-                <h4 class="border-bottom">Home</h4>
+                <h4 class="border-bottom" onclick="home()">Home</h4>
             </a><a href="#" class="p-3 nav-link text">
-                <h4 class="border-bottom">Link</h4>
-            </a><a href="#" class="p-3 nav-link disabled">
-                <h4 class="border-bottom">Disabled</h4>
+                <h4 class="border-bottom" onclick="brand()">Brands</h4>
+            </a><a href="#" class="p-3 nav-link">
+                <h4 class="border-bottom" id="cart">
+                        <i class="fab fa-opencart"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger"><p id="not">1</p></span>
+                </h4>
             </a>
         </div>
         <div class="col-md-4 d-flex justify-content-center p-4">
@@ -33,9 +36,9 @@
         </div>
     </div>
 </nav>
-    <div class="jumbo">
-        <div class="jumbotron jumbotron-fluid">
-            <h2 class="container">Today's Special Offers...</h2>
+    <div class="head">
+        <div class="row jumbodon">
+            <h2 class="container"><span id="wel">Wel<span id="dash">-</span>come</span> to the shop <i class="fas fa-grin-beam smile"></i>...!</h2>
         </div>
     </div>
     <div class="row displyItoms">
