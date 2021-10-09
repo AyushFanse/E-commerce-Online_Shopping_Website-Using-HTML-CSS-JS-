@@ -175,7 +175,7 @@ const getImg=(()=>{
                         <div class="col-md-6">
                             <h1 class="p-2">${product[x].name}</h2>
                             <p class="p-2"><span id="price"><b>Price:</b><span id="priceVal"> ${product[x].price}/-</span></span></p>
-                            <p class="p-2" id="rom"><span>RAM: ${product[x].ram}  </span> <span>ROM: ${product[x].rom}</span></p>
+                            <p class="p-2" id="rom"><span class="col-md-6">RAM: ${product[x].ram}</span><span class="col-md-6">ROM: ${product[x].rom}</span></p>
                             <p class="p-2" id="processor">Processor: ${product[x].processor}</p>
                             <p class="p-2" id="battry">Battry: ${product[x].battry}</p>
                         </div>`;
