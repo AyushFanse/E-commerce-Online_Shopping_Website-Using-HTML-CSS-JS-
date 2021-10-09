@@ -24,7 +24,7 @@ let product = [
         price: `₹21,990`,
         rom:`128 GB`,
         ram:`6 GB`,
-        Processor:`Qualcomm Snapdragon 732G`,
+        processor:`Qualcomm Snapdragon 732G`,
         battry: `5000 mAh`,
     },
     {
@@ -33,7 +33,7 @@ let product = [
         price: `₹60,999`,
         rom:`128 GB`,
         ram:`8 GB`,
-        processor:`Qualcomm Snapdragon 888 with Adreno 660 GPU`,
+        processor:`Qualcomm Snapdragon 888`,
         battry: `4500 mAh`,
     },
     {
@@ -60,7 +60,7 @@ let product = [
         price: `₹14,999`,
         rom:`128 GB`,
         ram:`6 GB`,
-        Processor:`Qualcomm Snapdragon 732G`,
+        processor:`Qualcomm Snapdragon 732G`,
         battry: `6000 mAh`,
     },
     {
@@ -69,7 +69,7 @@ let product = [
         price: `₹49,999`,
         rom:`128 GB`,
         ram:`8 GB`,
-        Processor:`Qualcomm Snapdragon 888 (SM8350)`,
+        processor:`Qualcomm Snapdragon 888 (SM8350)`,
         battry: `6000 mAh`,
     },
     {
@@ -78,7 +78,7 @@ let product = [
         price: `₹1,39,900`,
         rom:`256 GB`,
         ram:`256 GB`,
-        Processor:`A15 Bionic Chip`,
+        processor:`A15 Bionic Chip`,
         battry: `5000 mAh`,
     },
     {
@@ -87,7 +87,7 @@ let product = [
         price: `₹34,999`,
         rom:`128 GB`,
         ram:`8 GB`,
-        Processor:`Qualcomm Snapdragon 865+ (SM8250)`,
+        processor:`Qualcomm Snapdragon 865+ (SM8250)`,
         battry: `6000 mAh`,
     },
     {
