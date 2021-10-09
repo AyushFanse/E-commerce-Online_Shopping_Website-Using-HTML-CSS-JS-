@@ -2,10 +2,11 @@ let data = document.querySelector('.displyItoms');
 let searchData = document.querySelector("#searchData");
 let createData="";
 let newCreateData="";
+let x="";
 let product = [
     {
         name:"Realme x50 pro 5G",
-        image:"img/Realme X50 Pro 5G.png",
+        image:"img/Realme X50 Pro 5g.png",
     },
     {
         name:"Redmi Note10 Pro Max",
@@ -45,11 +46,12 @@ let product = [
     },
 ];
 
-for (let i = 0; i < product.length; i++) {
-const createData = 
-`<h3 class="d-flex justify-content-center">${product[i].name}</h3> 
+
+function getData(){
+    const createData = 
+`<h4 class="d-flex justify-content-center">${product[x].name}</h4> 
 <div class="p-3 d-flex justify-content-center bg-image hover-zoom"> 
-<a href="https://fanse-online-shop.netlify.app/${product[i].image}"> <img src="${product[i].image}" alt="img"/></a> 
+<a href="https://fanse-online-shop.netlify.app/${product[x].image}"> <img src="${product[x].image}" alt="img"/></a> 
 </div> 
 <div class="p-3 d-flex justify-content-center"> 
 <button class="btn btn-warning" type="button" >Add to Cart</button> 
@@ -58,32 +60,28 @@ let newCreateData=document.createElement('div');
 newCreateData.setAttribute("class","col-md-4");
 newCreateData.innerHTML=createData;
 data.append(newCreateData);
+}
+
+
+
+for (let i = 0; i < product.length; i++) {
+    x=i;
+    getData();
 };
 
 
-
 function search(){
+    // x="";
     data.innerHTML="";
     cap = searchData.value.toUpperCase();
     for (let i=0; i<product.length; i++){
         text=product[i].name;
         console.log(text.toUpperCase().indexOf(cap));
        if(text.toUpperCase().indexOf(cap)>-1){
-        const createData = 
-        `<h3 class="d-flex justify-content-center">${product[i].name}</h3> 
-        <div class="p-3 d-flex justify-content-center bg-image hover-zoom"> 
-        <a href="https://fanse-online-shop.netlify.app/${product[i].image}"> <img src="${product[i].image}" alt="img"/></a> 
-        </div> 
-        <div class="p-3 d-flex justify-content-center"> 
-        <button class="btn btn-warning" type="button" >Add to Cart</button> 
-        </div> `;
-        let newCreateData=document.createElement('div');
-        newCreateData.setAttribute("class","col-md-4");
-        newCreateData.innerHTML=createData;
-        console.log(createData);
-        data.append(newCreateData);
+        x=i;
+        getData();
         }
-       else {
+       else{
         createData="none";
        }
        }
