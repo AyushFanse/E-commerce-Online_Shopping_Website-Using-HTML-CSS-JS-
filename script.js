@@ -102,7 +102,7 @@ let product = [
     },
     {
         name:"Nokia 9",
-        image:"img/Nokia 9.jpg",
+        image:"img/Nokia 9.png",
         price: `58,999`,
         rom:`128`,
         ram:`6`,
@@ -263,8 +263,8 @@ const getImg=(()=>{
 const getData=(()=>{
     const createData = `<div class="d-flex justify-content-center fontSize">${product[x].name}</div> 
                         <div class="p-3 d-flex justify-content-center bg-image hover-zoom"> 
-                            <a href="https://fanse-online-shop.netlify.app/${product[x].image}">
-                                <img id="display" src="${product[x].image}" alt="img"/>
+                            <a class="d-flex justify-content-center" href="https://fanse-online-shop.netlify.app/${product[x].image}">
+                                <img class="display" src="${product[x].image}" alt="img"/>
                             </a> 
                         </div> 
                         <div class="p-3 d-flex justify-content-center"> 
@@ -272,7 +272,7 @@ const getData=(()=>{
                         </div> `;
 
     newCreateData=document.createElement('div');
-    newCreateData.setAttribute("class","col-md-4");
+    newCreateData.setAttribute("class","col-md-3");
     newCreateData.setAttribute("id","product");
     newCreateData.innerHTML=createData;
     data.append(newCreateData);
@@ -377,3 +377,13 @@ const error=(()=>{
     data.append(newCreateData);
     
 });
+
+function Open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+  }
+  
+  function Close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+  }
