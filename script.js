@@ -247,7 +247,7 @@ const getImg=(()=>{
                             <p class="p-1" id="processor">Processor: ${product[x].processor}</p>
                             <p class="p-1" id="battry">Battry: ${product[x].battry} mAh</p>
                             <div class="d-grid gap-2 d-md-block">
-                                <button class="btn btn-warning m-2" type="button">Add to Cart</button>
+                                <button class="btn btn-warning btn-outline-dark m-2" type="button">Add to Cart</button>
                                 <button class="btn btn-dark btn-outline-warning m-2" type="button">Buy Now</button>
                             </div>
                         </div>`;
