@@ -147,6 +147,12 @@ nav{
     margin: 40px;
     width: 20%;
 }
+@media (max-width:570px){
+    .error{
+        margin: 10px;
+        width: 60%;
+    }
+}
 #Details{
     margin-left: 10px;
 }
