@@ -5,12 +5,13 @@ let searchData = document.querySelector("#searchData");
 let searchBrand = document.querySelector("#searchBrand");
 let createData="";
 let newCreateData="";
+let garbage=0;
 let x="";
 
 // Created my own Product object.
 let product = [
     {
-        name:"Realme x50 pro 5G",
+        name:"Realme x50 pro",
         image:"img/Realme X50 Pro 5g.png",
         price: `41,999`,
         rom:`128`,
@@ -28,7 +29,7 @@ let product = [
         battry: `5000`,
     },
     {
-        name:"OnePlus 9 Pro 5G",
+        name:"OnePlus 9 Pro",
         image:"img/OnePlus 9 Pro 5G.png",
         price: `60,999`,
         rom:`128`,
@@ -37,7 +38,7 @@ let product = [
         battry: `4500`,
     },
     {
-        name:"Realme 8i 5G",
+        name:"Realme 8i",
         image:"img/Realme 8i 5G.png",
         price: `14,999`,
         rom:`128`,
@@ -64,8 +65,8 @@ let product = [
         battry: `6000`,
     },
     {
-        name:"Asus ROG Phone 5 Ultimate",
-        image:"img/ROG Phone 5 Ultimate.png",
+        name:"ROG Phone 5",
+        image:"img/Asus ROG Phone 5 Ultimate.png",
         price: `49,999`,
         rom:`128`,
         ram:`8`,
@@ -82,8 +83,8 @@ let product = [
         battry: `5000`,
     },
     {
-        name:"Asus ROG Phone 3",
-        image:"img/ROG Phone 3.png",
+        name:"ROG Phone 3",
+        image:"img/Asus ROG Phone 3.png",
         price: `34,999`,
         rom:`128`,
         ram:`8`,
@@ -91,7 +92,7 @@ let product = [
         battry: `6000`,
     },
     {
-        name:"Realme GT Master Edition",
+        name:"Realme GT",
         image:"img/realme GT Master Edition.png",
         price: `22,999`,
         rom:`128`,
@@ -100,7 +101,16 @@ let product = [
         battry: `4300`,
     },
     {
-        name:"Google Pixel 5 5G Sorta Sage",
+        name:"Nokia 9",
+        image:"img/Nokia 9.jpg",
+        price: `58,999`,
+        rom:`128`,
+        ram:`6`,
+        processor:`Qualcomm SDM845 Snapdragon 845`,
+        battry: `3320 `,
+    },
+    {
+        name:"Google Pixel 5",
         image:"img/Google Pixel 5 5G.png",
         price: `64,298`,
         rom:`128`,
@@ -118,7 +128,7 @@ let product = [
         battry: `5000`,
     },
     {
-        name:"Oppo Reno 6 Pro 5G",
+        name:"Oppo Reno 6 Pro",
         image:"img/oppo Reno6 pro 5G.png",
         price: `42,990`,
         rom:`256`,
@@ -127,8 +137,8 @@ let product = [
         battry: `4500`,
     },
     {
-        name:"Asus ROG Phone 5s Pro",
-        image:"img/ROG Phone 5s Pro.png",
+        name:"ROG Phone 5s Pro",
+        image:"img/Asus ROG Phone 5s Pro.png",
         price: `41,999`,
         rom:`512`,
         ram:`18`,
@@ -136,8 +146,8 @@ let product = [
         battry: `6000`,
     },
     {
-        name:"iQOO 7 5G",
-        image:"img/iQOO 7.jpg",
+        name:"iQOO 7",
+        image:"img/iQOO 7 5G.jpg",
         price: `29,990`,
         rom:`128`,
         ram:`8`,
@@ -323,19 +333,24 @@ const disply=((n)=>{
 
 // search function.
 const search=(()=>{
-    console.log(searchData.value);
+    garbage=0;
     data.innerHTML="";
     cap = searchData.value.toUpperCase();
-    console.log(cap);
     for (let i=0; i<product.length; i++){
-        text=product[i].name;
-        console.log(text.toUpperCase().indexOf(cap));
+        text=product[i].image;
         if(text.toUpperCase().indexOf(cap)>-1){
             x=i;
             getData();
         }
         else{
-            error();
+            garbage +=parseInt(text.toUpperCase().indexOf(cap));
+            if(garbage>-product.length){
+                createData ="";
+            }
+            else{
+                error();
+                console.log(garbage);
+            }
         }
     }
 });
@@ -353,11 +368,12 @@ const error=(()=>{
     data.innerHTML="";
     const createData =
                     `<div class="row d-flex justify-content-center">
-                        <img class="error mx-auto" src="not found img/pngegg (1).png" alt="">
+                        <img class="error mx-auto" src="Error 404/404 (${Math.floor(Math.random()*18)+1}).png" alt="">
                     </div>
                         <h3 class="row d-flex justify-content-center m-3">What is this..?</h3>`;
     newCreateData=document.createElement('div');
     newCreateData.setAttribute("class","row");
     newCreateData.innerHTML=createData;
     data.append(newCreateData);
+    
 });

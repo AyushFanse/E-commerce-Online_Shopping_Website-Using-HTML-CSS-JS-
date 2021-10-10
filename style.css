@@ -1,11 +1,11 @@
-body{
+/* body{
     background:#b0b0c2;
-}
-.navbar-main{
+} */
+nav{
     background: linear-gradient(to right, #0f0c29, #1c1747, #221d53, #181446, #110e38);
 }
 #display{
-    width: 100%;
+    width: 80%;
     min-height: 200px;
     max-height: 250px;
     height: 100%;
@@ -20,6 +20,7 @@ body{
 }
 .imgBack{
     border: 7px solid #6b6b90;
+    background:white;
     border-radius:5px;
     width: 400px;
 }
@@ -135,19 +136,20 @@ body{
     justify-content: center;
 }
 .fontSize {
-    font-size: 20px;
-    width:100%;
+    font-size: 18px;
     font-weight: bold;
 }
 .fontSize1 {
     font-size:40px;
-    width:100%;
     font-weight: bold;
 }
 .error{
-    margin: 50px;
-    width: 300px;
+    margin: 40px;
+    width: 20%;
 }
 #Details{
     margin-left: 10px;
+}
+.bg-image{
+    background:white;
 }
