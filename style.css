@@ -5,8 +5,8 @@ body{
     background: linear-gradient(to right, #0f0c29, #1c1747, #221d53, #181446, #110e38);
 }
 #display{
-    width: auto;
-    min-height: 200px;;
+    width: 100%;
+    min-height: 200px;
     max-height: 250px;
     height: 100%;
 }
@@ -25,7 +25,7 @@ body{
 }
 
 .home{
-    color: #b7acf5;
+    color: #ffd900;
 }
 .text{
     color: #9dff00;
@@ -47,12 +47,20 @@ body{
     background: linear-gradient(to left, #2a2b2c, #4d4e4e);
     color:rgb(236, 207, 41);
 }
+@media (max-width: 576px) { 
+.jumbodon{
+    height: 120px;
+    background: linear-gradient(to left, #2a2b2c, #4d4e4e);
+    color:rgb(236, 207, 41);
+}
+}
 #searchBtn{
     margin-left: 10px;
 }
 .container{
-    margin-top:28px;
+    margin-top:20px;
     font-style: oblique;
+    font-size:25px;
     font-family: "Helvetica Neue";
     font-display: center;
 }
@@ -62,10 +70,18 @@ body{
     align-items: center;
 }
 #product{
-    margin-top:40px;
+    margin-top:10px;
 }
 #wel{
     font-size:50px;
+}
+@media (max-width: 576px) { 
+.welcome{
+    margin: 30px;
+}
+#wel{
+    font-size:40px;
+}
 }
 #price{
     font-size:25px;
@@ -87,7 +103,7 @@ body{
     font-weight:bold;
 }
 #cart{
-    color:rgb(255, 102, 0);
+    color: #ffd900;
 }
 .badge{
    width:4%;
@@ -111,4 +127,27 @@ body{
 }
 #dash{
  color:rgb(218, 49, 49);
+}
+#error{
+    margin-top:40px;
+    font-size:300;
+    display: flex;
+    justify-content: center;
+}
+.fontSize {
+    font-size: 20px;
+    width:100%;
+    font-weight: bold;
+}
+.fontSize1 {
+    font-size:40px;
+    width:100%;
+    font-weight: bold;
+}
+.error{
+    margin: 50px;
+    width: 300px;
+}
+#Details{
+    margin-left: 10px;
 }
