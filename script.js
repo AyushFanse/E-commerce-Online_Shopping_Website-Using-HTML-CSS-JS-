@@ -77,7 +77,7 @@ let product = [
         name:"iPhone 13 Pro Max",
         image:"img/iPhone 13 Pro Max.png",
         price: `1,39,900`,
-        rom:`256`,
+        rom:`6`,
         ram:`256`,
         processor:`A15 Bionic Chip`,
         battry: `5000`,
