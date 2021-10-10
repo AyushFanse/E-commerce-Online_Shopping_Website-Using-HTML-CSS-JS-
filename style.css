@@ -8,12 +8,14 @@ nav{
     max-width: 80%;
     min-height: 200px;
     max-height: 250px;
+    border-radius:10px;
 }
 #img{
     vertical-align: middle;
     min-height: 200px;;
     max-height: 350px;
     height: 100%;
+    border-radius:27px;
 }
 #F:hover{
     color:rgb(12, 3, 3);
