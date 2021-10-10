@@ -11,7 +11,6 @@ nav{
     border-radius:8px;
 }
 #img{
-    vertical-align: middle;
     min-height: 200px;;
     max-height: 350px;
     height: 100%;
@@ -224,4 +223,12 @@ nav{
     bottom:0;
     background-color:rgba(0, 0, 0, 0);
     z-index:2
+}
+.company{
+    font-size: 33px;
+}
+@media (max-width: 576px) { 
+    .company{
+        font-size: 25px;
+    }
 }
