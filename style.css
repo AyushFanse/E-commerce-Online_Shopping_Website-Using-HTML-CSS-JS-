@@ -2,6 +2,7 @@ body{
     background:#b0b0c2;
 }
 nav{
+    width: 104%;
     background: linear-gradient(to right, #0f0c29, #1c1747, #221d53, #181446, #110e38);
 }
 .display{
@@ -73,7 +74,8 @@ nav{
 .home:hover,.text:hover{
     color: #050505;
 }
-.displyItoms{
+.displyBrands{
+    margin-top: 50px;
     margin-left: 20px;
     margin-right: 25px;
 }
@@ -84,6 +86,7 @@ nav{
 }
 .jumbodon{
     margin-top: 20px;
+    margin:5px ;
     height: 100px;
     border-radius: 90px;
     /* background: linear-gradient(to left, #2a2b2c, #4d4e4e); */
@@ -178,8 +181,8 @@ nav{
     font-weight: bold;
 }
 .error{
-    margin: 40px;
-    width: 40%;
+    margin: 20px;
+    width: 300px;
 }
 @media (max-width:570px){
     .error{
@@ -196,7 +199,6 @@ nav{
     border-radius:30px;
 }
 .avatar {
-    margin-top: 15px;
     width:  45px;
     height: 45px;
     background:rgb(174, 255, 0);
@@ -229,6 +231,26 @@ nav{
 }
 @media (max-width: 576px) { 
     .company{
+        font-size: 35px;
+    }
+}
+@media (max-width: 1169px) { 
+    .company{
+        margin-top:3px;
         font-size: 25px;
+    }
+}
+@media (max-width: 930px) { 
+    .company{
+        display: center;
+        justify-content: center;
+        margin-top:7px;
+        font-size: 22px;
+    }
+}
+@media (max-width: 770px) { 
+    .shop{
+        display: center;
+        justify-content: center;
     }
 }

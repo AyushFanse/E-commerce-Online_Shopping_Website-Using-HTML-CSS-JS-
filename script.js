@@ -1,11 +1,13 @@
 // Defining variables
 let data = document.querySelector('.displyItoms');
-let remData = document.querySelector('.head');
+let brandDataPage = document.querySelector('.displyBrands');
+let remData = document.querySelector('.head-jumbodon');
 let searchData = document.querySelector("#searchData");
 let searchBrand = document.querySelector("#searchBrand");
 let createData="";
 let newCreateData="";
 let garbage=0;
+let errImg=22;
 let x="";
 
 // Created my own Product object.
@@ -165,7 +167,7 @@ let product = [
     },
 ];
 
-var brands = [
+let brands = [
     {
         brandName:"Realme",
         icon:"icons/Realme.png",
@@ -179,7 +181,7 @@ var brands = [
         icon:"icons/Redmi.png",
     },
     {
-        brandName:"ROG",
+        brandName:"Asus ROG",
         icon:"icons/ROG.png",
     },
     {
@@ -278,9 +280,25 @@ const getData=(()=>{
     data.append(newCreateData);
 });
 
+const getBrand=(()=>{
+    const createData = `<div class="d-flex justify-content-center fontSize">${product[x].name}</div> 
+                        <div class="p-3 d-flex justify-content-center bg-image hover-zoom"> 
+                            <a class="d-flex justify-content-center" href="https://fanse-online-shop.netlify.app/${product[x].image}">
+                                <img class="display" src="${product[x].image}" alt="img"/>
+                            </a> 
+                        </div> 
+                        <div class="p-3 d-flex justify-content-center"> 
+                            <button class="btn btn-warning" onclick="ViewDetails(${x})" type="button">View Details</button> 
+                        </div> `;
+
+    newCreateData=document.createElement('div');
+    newCreateData.setAttribute("class","col-md-3");
+    newCreateData.setAttribute("id","product");
+    newCreateData.innerHTML=createData;
+    brandDataPage.append(newCreateData);
+});
 
 const home=(()=>{
-    data.innerHTML="";
     // Defaule displays all Products.
     for (let i = 0; i < product.length; i++) {
             x=i;
@@ -288,42 +306,16 @@ const home=(()=>{
     };
 });
 
-home();
-
-const brandData=((x)=>{
-    const createData =
-                    `<div class="p-2 d-flex justify-content-center"> 
-                        <button class="btn btn-light icon" onclick="disply('${brands[x].brandName}')" id="searchBand" type="button">
-                            <img id="icon" src="${brands[x].icon}" alt="icon"> 
-                        </button> 
-                    </div>`;
-    newCreateData=document.createElement('div');
-    newCreateData.setAttribute("class","col-md-2");
-    newCreateData.setAttribute("id","product");
-    newCreateData.innerHTML=createData;
-    data.append(newCreateData);
-});
-
-const brand=(()=>{
-    remData.innerHTML=""
-    data.innerHTML="";
-    for (let i = 0; i < brands.length; i++) {
-        brandData(i);
-    };
-});
 
 // Disply function to search mobiles with their brand name
 const disply=((n)=>{
-    console.log(n);
-    data.innerHTML="";
+    brandDataPage.innerHTML="";
     cap = n.toUpperCase();
-    console.log(cap);
     for (let i=0; i<product.length; i++){
-        text=product[i].name;
-        console.log(text.toUpperCase().indexOf(cap));
+        text=product[i].image;
         if(text.toUpperCase().indexOf(cap)>-1){
             x=i;
-            getData();
+            getBrand();
         }
         else{
             createData="none";
@@ -333,6 +325,7 @@ const disply=((n)=>{
 
 // search function.
 const search=(()=>{
+    remData.innerHTML=""
     garbage=0;
     data.innerHTML="";
     cap = searchData.value.toUpperCase();
@@ -349,7 +342,6 @@ const search=(()=>{
             }
             else{
                 error();
-                console.log(garbage);
             }
         }
     }
@@ -364,26 +356,90 @@ const ViewDetails=((n)=>{
 
 
 const error=(()=>{
-    remData.innerHTML=""
     data.innerHTML="";
     const createData =
-                    `<div class="row d-flex justify-content-center">
-                        <img class="error mx-auto" src="Error 404/404 (${Math.floor(Math.random()*18)+1}).png" alt="">
-                    </div>
-                        <h3 class="row d-flex justify-content-center m-3">What is this..?</h3>`;
+                    `<h2 class="row d-flex justify-content-center m-3" id="errorImg">It's hard to find...!</h2>
+                    <div class="row d-flex justify-content-center">
+                    <img class="error mx-auto" src="Error 404/404 (${Math.floor(Math.random()*errImg)+1}).png" alt="">
+                    </div>`;
     newCreateData=document.createElement('div');
     newCreateData.setAttribute("class","row");
     newCreateData.innerHTML=createData;
     data.append(newCreateData);
-    
 });
 
+
+
+const brandData=((x)=>{
+    const createBrand =
+    `<div class="p-2 d-flex justify-content-center"> 
+    <button class="btn btn-light icon" onclick="disply('${brands[x].brandName}')" id="searchBand" type="button">
+    <img id="icon" src="${brands[x].icon}" alt="icon"> 
+    </button> 
+    </div>`;
+    newCreateBrand=document.createElement('div');
+    newCreateBrand.setAttribute("class","col-md-2");
+    newCreateBrand.setAttribute("id","product");
+    newCreateBrand.innerHTML=createBrand;
+    brandDataPage.append(newCreateBrand);
+});
+
+const brand=(()=>{
+    brandDataPage.innerHTML="";
+    for (let i = 0; i <brands.length; i++) {
+        brandData(i);
+    };
+});
+
+const ditect=(()=>{
+    if(brandDataPage==null) home();
+    else brand();
+});
+
+ditect();
+
+const searchBrands=(()=>{
+    garbage=0;
+    brandDataPage.innerHTML="";
+    cap = searchBrand.value.toUpperCase();
+    for (let i=0; i<brands.length; i++){
+        text=brands[i].brandName;
+        if(text.toUpperCase().indexOf(cap)>-1){
+            x=i
+            brandData(x);
+        }
+        else{
+            garbage +=parseInt(text.toUpperCase().indexOf(cap));
+            if(garbage>-brands.length){
+                createData ="";
+            }
+            else{
+                brandError();
+            }
+        }
+    }
+});
+
+
+const brandError=(()=>{
+    brandDataPage.innerHTML="";
+    const createData =
+                    `<h1><b class="row d-flex justify-content-center m-3" id="errorImg">It's hard to find...!</b></h1>
+                    <div class="row d-flex justify-content-center">
+                    <img class="error mx-auto" src="Error 404/404 (${Math.floor(Math.random()*errImg)+1}).png" alt="">
+                    </div>`;
+    newCreateData=document.createElement('div');
+    newCreateData.setAttribute("class","row");
+    newCreateData.innerHTML=createData;
+    brandDataPage.append(newCreateData);
+    });
+                
 function Open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
-  }
-  
-  function Close() {
+}
+
+function Close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
-  }
+}

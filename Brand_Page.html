@@ -16,15 +16,10 @@
 <body>
     <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;z-index:5" id="mySidebar">
         <button onclick="Close()" class="w3-bar-item w3-large d-flex justify-content-center btn-danger" id="close"><i class="fas fa-angle-double-left"> Close</i></button>
-        <div class="row m-3 d-flex justify-content-center btn btn-warning">
-            <a href="Sign_up.html" class="w3-bar-item w3-button">
-                <div class="col">
-                    <div class=" d-flex justify-content-center m-2"><img src="a.png" alt="Avatar" class="row avatar"></div>
-                    <b class=" d-flex justify-content-center">login</b>
-                </div>
-            </a>
-        </div>
-        <a href="Brand_Page.html" class="w3-bar-item w3-button d-flex justify-content-center"><b>Brand</b></a>
+        <a href="Sign_up.html" class="w3-bar-item w3-button d-flex justify-content-center">
+            <img src="a.png" alt="Avatar" class="avatar">
+        </a>
+        <a href="index.html" class="w3-bar-item w3-button d-flex justify-content-center"><b>Home</b></a>
         <a href="" class="w3-bar-item w3-button d-flex justify-content-center"><b>Cart</b></a>
     </div>
     <div class="w3-overlay" onclick="Close()" style="cursor:pointer" id="myOverlay"></div>
@@ -35,7 +30,7 @@
                 <div class="col-md-4 d-flex justify-content-center">
                     <img src="a.png" alt="Avatar" class="avatar m-3" onclick="Open()">
                 </div>
-                <a  href="" class="col-md-6 nav-link shop">
+                <a  href="index.html" class="col-md-6 nav-link shop">
                     <div class="company border-bottom">
                         <span id="F">F</span><span id="A">A</span><span id="N">N</span><span id="S">S</span><span id="E">E</span> <span id="s">S</span><span id="H">h</span><span id="O">o</span><span id="P">p</span>
                     </div>
@@ -43,12 +38,9 @@
             </div>
             
         </div>
-        <div class="col-md-4 d-flex justify-content-center p-2 nav-middel">
-            <a href="" class="p-3 nav-link home">
+        <div class="col-md-4 d-flex justify-content-center p-2">
+            <a href="index.html" class="p-3 nav-link home">
                 <h3 class="border-bottom" onclick="home()"><i class="fas fa-home"></i></h3>
-            </a>
-            <a onclick="brand()" href="Brand_Page.html" class="p-3 nav-link text">
-                <h3 class="border-bottom" >B<span id="A">r</span>ands</h3>
             </a>
             <a href="#" class="p-3 nav-link home">
                 <h3 class="border-bottom" onclick="goToCart()"><i class="fab fa-opencart"></i></h3>
@@ -56,24 +48,18 @@
             </a>
         </div>
         <div class="col-md-4 d-flex justify-content-center p-4">
-            <div class=""><input type="text" class="form-control p-3" placeholder="What do you want.?" id="searchData"></div>
+            <div class=""><input type="text" class="form-control p-3" placeholder="What do you want.?" id="searchBrand"></div>
             <div>
-                <button type="submit" class="btn btn-warning btn-outline-dark" id="searchBtn" onclick="search()">
+                <button type="submit" class="btn btn-warning btn-outline-dark" id="searchBtn" onclick="searchBrands()">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
         </div>
     </div>
 </nav>
-    <div class="head-jumbodon">
-        <div class="row jumbodon">
-            <div class="container welcome"><span id="wel">Wel<span id="dash">-</span>come</span> to the shop <i class="fas fa-grin-beam smile"></i>...!</div>
-        </div>
-    </div>
-    <div class="row displyItoms">
+    <div class="row displyBrands">
         
     </div>
 </body>
 <script src="script.js"></script> 
 </html>
-
