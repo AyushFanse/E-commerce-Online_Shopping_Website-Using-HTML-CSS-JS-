@@ -256,6 +256,6 @@ nav{
 }
 @media (max-width: 768px) { 
     .navbar-main{
-        margin-left: 3px;
+        margin-left: 4px;
     }
 }
