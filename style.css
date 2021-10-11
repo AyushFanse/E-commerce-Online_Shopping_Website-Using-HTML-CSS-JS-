@@ -254,3 +254,8 @@ nav{
         justify-content: center;
     }
 }
+@media (max-width: 768px) { 
+    .navbar-main{
+        margin-left: 2px;
+    }
+}
