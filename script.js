@@ -343,7 +343,6 @@ const display=((n)=>{
 
 // search function.
 const search=(()=>{
-    remData.innerHTML=""
     garbage=0;
     data.innerHTML="";
     cap = searchData.value.toUpperCase();
