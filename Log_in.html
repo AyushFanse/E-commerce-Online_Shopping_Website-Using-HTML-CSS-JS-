@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp Page</title>
+    <title>Log in Page</title>
     <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
     <!-- Google Fonts -->
@@ -45,23 +45,13 @@
             <div class="col-md-1"></div>
         </div>
     </nav>
-    <form class="was-validated container p-5" onSubmit="">
-        <div class="d-flex justify-content-center p-3 border-bottom"><h1>Create a Account</h1></div>
+    <form class="was-validated container p-5" onSubmit="ditect()">
+        <div class="d-flex justify-content-center p-3 border-bottom"><h1>Welcome Back</h1></div>
         <div class="legend m-3">
             <div class="d-flex justify-content-center">
-                <div class="col-md-3">
-                    <label for="inputName4" class="form-label">Name</label>
-                    <input type="text" class="form-control" placeholder="First" aria-label="First name" required>
-                </div>
-                <div class="col-md-3">
-                    <label for="inputName4" class="form-label">_</label>
-                    <input type="text" class="form-control" placeholder="Last" aria-label="Last name" required>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center">
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email@xyz.com" required>
+                    <label for="inputEmail4 || numbers" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Email@xyz.com / +91**********" required>
                 </div>
             </div>
             <div class="d-flex justify-content-center">
@@ -71,21 +61,14 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <div class="col-md-6">
-                    <label for="inputNumber" class="form-label">Phone Number</label>
-                    <input type="inputNumber" class="form-control" id="number" placeholder="+91**********" required>
+                <div class="d-grid gap-2 col-md-3 p-3 border-button">
+                    <button class="btn btn-info p-2" type="submit">Log in</button>
                 </div>
+                    <a class="d-grid gap-1 col-md-3 p-3 border-button" href="Sign_Up.html"><button class="btn btn-danger p-2" type="button">Sign Up</button></a>
             </div>
-            <div class="d-flex justify-content-center">
-                <div class="d-grid gap-2 col-md-6 p-3 border-button">
-                <button class="btn btn-danger p-2" type="button" >Sign Up</button>
-                </div>
-            </div>
-            <h4>Already have an account? <a href="Log_in.html">Login</a> </h4>
         </div>
     </form>
 </body>
 <script src="script.js"></script> 
 <!-- <script src="dome.js"></script>  -->
 </html>
-
