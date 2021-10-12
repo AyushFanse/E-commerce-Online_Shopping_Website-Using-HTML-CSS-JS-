@@ -62,7 +62,7 @@ let product = [
         battry: `6000`,
     },
     {
-        name:"ROG Phone 5",
+        name:"ASUS ROG Phone 5",
         image:"img/Asus ROG Phone 5 Ultimate.png",
         price: `49,999`,
         rom:`128`,
@@ -80,7 +80,7 @@ let product = [
         battry: `5000`,
     },
     {
-        name:"ROG Phone 3",
+        name:"ASUS ROG Phone 3",
         image:"img/Asus ROG Phone 3.png",
         price: `34,999`,
         rom:`128`,
@@ -134,7 +134,7 @@ let product = [
         battry: `4500`,
     },
     {
-        name:"ROG Phone 5s Pro",
+        name:"ASUS ROG Phone 5s Pro",
         image:"img/Asus ROG Phone 5s Pro.png",
         price: `41,999`,
         rom:`512`,
