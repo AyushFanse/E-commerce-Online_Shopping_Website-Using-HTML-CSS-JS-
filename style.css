@@ -224,7 +224,7 @@ nav{
     left:0;
     right:0;
     bottom:0;
-    background-color:rgba(0, 0, 0, 0);
+    background-color:rgba(12, 5, 17, 0.317);
     z-index:2
 }
 .company{
@@ -263,4 +263,27 @@ nav{
 .beforeDisplay{
     margin: auto;
 }
-
+#close{
+    background: linear-gradient(to right, #e52d27, #b31217);
+    color: #fff;
+    width: 85%;
+    margin:auto;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+#bubble{
+    width: 85%;
+    margin:auto;
+    border-radius: 100px;
+    background: #342a8a;
+    color: #fff;
+}
+#mySidebar{
+    background: linear-gradient(to right, #4ac29a, #bdfff3);
+}
+#patch{
+    border-radius: 20px;
+}
+#patch:hover{
+    background:rgb(209, 190, 190);
+}
