@@ -303,8 +303,9 @@ const getImgTemp=(()=>{
 
 
 const tempCart=((item)=>{
+    // console.log(cartSuper[item]);
     const createdData = `<div class="mainCart d-flex justify-content-center row m-4">
-                            <div class="remove d-flex justify-content-end"><span id="remove"><i class="fas fa-times"></i></span></div>
+                            <div class="remove d-flex justify-content-end"><span id="remove" onclick="remove(${item})"><i class="fas fa-times"></i></span></div>
                             <div class="img  d-flex justify-content-center col-md-2 p-3 bg-image hover-zoom">
                                 <img class="cartDisplay" src="${product[item.name].image}" alt="img"/>
                             </div>
@@ -374,6 +375,7 @@ const nameOfTheProduct = name => cartSuper.indexOf(cartSuper.find(n=>n.name===na
 const popCount=(()=>{
     if(cartContainer){
         for(let u=0;u<cartSuper.length;u++){
+            // console.log(cartSuper[u]);
             cartContainer.append(tempCart(cartSuper[u]));
     }}
     else{
@@ -382,7 +384,7 @@ const popCount=(()=>{
     }
 });
 
-
+console.log(popCount());
 popCount();
 
 const addToCart= name =>{
@@ -396,7 +398,17 @@ const addToCart= name =>{
     
     popCount();
 };
- 
+
+const reset = (()=>{
+    localStorage.removeItem(`cartSuper`);
+})
+
+const remove=((x)=>{
+    // console.log(x);
+    // localStorage.removeItem(`cartSuper[${x}]`);
+    // cartContainer.innerHTML = '';
+    // popCount();
+ });
 
 const tempDisplay=(()=>{
     const createData = `<div class="d-flex justify-content-center fontSize p-4">${product[x].name}</div> 
@@ -443,7 +455,7 @@ const tempError=(()=>{
 });
 
 
-// func to pront thhe product datails
+// func to print the product datails
 const getData=(()=>{
     data.append(tempDisplay());
 });
@@ -494,8 +506,8 @@ const search=(()=>{
         }
         else{
             garbage +=parseInt(text.toUpperCase().indexOf(cap));
-            console.log(product.length);
-            console.log(garbage);
+            // console.log(product.length);
+            // console.log(garbage);
             if(garbage>-product.length){
                 createData ="";
             }
@@ -532,12 +544,12 @@ const searchBrands=(()=>{
 //Adding Products to the cart
 const ViewDetails=((n)=>{
 
-    if(data !==null){
+    if(data){
         data.innerHTML="";
         x=n;
         getImgForDisplay();       
     }
-    else {
+    else if (brandDataPage) {
         brandDataPage.innerHTML="";
         x=n;
         getImgForBrand();
@@ -558,8 +570,9 @@ const brand=(()=>{
 });
 
 const ditect=(()=>{
-    if(brandDataPage==null) home();
-    else brand();
+    if(data) home();
+    // else if(cartContainer) popCount();
+    else if (brandDataPage) brand();
 });
 
 ditect();

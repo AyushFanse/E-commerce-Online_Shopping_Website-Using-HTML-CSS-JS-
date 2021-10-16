@@ -478,3 +478,20 @@ box-shadow: 0 0 6px rgb(0, 0, 0);
 .rough{
     width:70px;
 }
+#reset {
+    margin-right: 40px; 
+    margin-top: -63px;
+    position: absolute;
+    background: rgb(235, 56, 56);
+    border: 3px solid rgb(182, 182, 182);
+    box-shadow: 0 0 8px rgb(0, 0, 0);
+    border-radius: 5px;
+    width: 120px;
+    height: 37px;
+    font-size:18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    display:flex;
+    justify-content: center;
+    vertical-align: middle;
+}
