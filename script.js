@@ -1,9 +1,13 @@
 // Defining variables
 var data = document.querySelector('.displayItoms');
 var brandDataPage = document.querySelector('.displayBrands');
+var cartContainer = document.querySelector('.cartDetails');
 let searchData = document.querySelector("#searchData");
 let searchBrand = document.querySelector("#searchBrand");
-let createData="", newCreateData="", garbage=0, errImg=22, x="";
+let supPop = document.querySelector("sup");
+let itemQty = document.querySelector(".qty");
+let createData="", newCreateData="", garbage=0, errImg=22, x="",popo="",cartDataCollection="";
+
 
 // Created my own Product object.
 let product = [
@@ -45,7 +49,7 @@ let product = [
     },
     {
         name:"POCO M3 Pro",
-        image:"img/POCO M3 Pro all.png",
+        image:"img/POCO M3 Pro 5G.png",
         price: `16,499`,
         rom:`128`,
         ram:`6`,
@@ -126,7 +130,7 @@ let product = [
     },
     {
         name:"Oppo Reno 6 Pro",
-        image:"img/oppo Reno6 pro 5G.png",
+        image:"img/Oppo Reno6 pro 5G.png",
         price: `42,990`,
         rom:`256`,
         ram:`12`,
@@ -135,7 +139,7 @@ let product = [
     },
     {
         name:"ROG Phone 5s Pro",
-        image:"img/Asus ROG Phone 5s Pro.png",
+        image:"img/Asus ROG Phone 5s pro.png",
         price: `41,999`,
         rom:`512`,
         ram:`18`,
@@ -159,6 +163,42 @@ let product = [
         ram:`4`,
         processor:`Mediatek G25 8x A53 2.0GHz`,
         battry: `5050`,
+    },
+    {
+        name:"Vivo V21 5G",
+        image:"img/VIVO V21 5G.jpg",
+        price: `29,990`,
+        rom:`128`,
+        ram:`8`,
+        processor:`MediaTek Dimensity 800U`,
+        battry: `4000`,
+    },
+    {
+        name:"Vivo V21 Pro",
+        image:"img/Vivo V21 Pro 5G.jpg",
+        price: `32,990`,
+        rom:`128`,
+        ram:`8`,
+        processor:`MediaTek Dimensity 800U`,
+        battry: `4300`,
+    },
+    {
+        name:"Samsung Galaxy A72",
+        image:"img/Samsung galaxy A72.jpg",
+        price: `34,999`,
+        rom:`128`,
+        ram:`8`,
+        processor:`Qualcomm Snapdragon 720G`,
+        battry: `5000`,
+    },
+    {
+        name:"Realme GT Neo 2",
+        image:"img/Realme GT Neo 2 5G.jpg",
+        price: `31,999`,
+        rom:`128`,
+        ram:`8`,
+        processor:`Qualcomm Snapdragon 870`,
+        battry: `5000`,
     },
 ];
 
@@ -250,17 +290,113 @@ const getImgTemp=(()=>{
                             <p class="p-1" id="processor">Processor: ${product[x].processor}</p>
                             <p class="p-1" id="battry">Battry: ${product[x].battry} mAh</p>
                             <div class="d-grid gap-2 d-md-block">
-                                <button class="btn btn-warning btn-outline-dark m-2" type="button">Add to Cart</button>
+                                <button class="btn btn-warning btn-outline-dark m-2" type="button" onclick="addToCart(x)">Add to Cart</button>
                                 <button class="btn btn-dark btn-outline-warning m-2" type="button">Buy Now</button>
                             </div>
                         </div>`;
-
     newCreateData=document.createElement('div');
     newCreateData.setAttribute("class","row");
     newCreateData.setAttribute("id","product");
     newCreateData.innerHTML=createData;
     return newCreateData;
 });
+
+
+const tempCart=((item)=>{
+    const createdData = `<div class="mainCart d-flex justify-content-center row m-4">
+                            <div class="remove d-flex justify-content-end"><span id="remove"><i class="fas fa-times"></i></span></div>
+                            <div class="img  d-flex justify-content-center col-md-2 p-3">
+                                <img class="cartDisplay" src="${product[item.name].image}" alt="img"/>
+                            </div>
+                            <div class="col-md-6 p-4" id="detailsCart">
+                                <div class="row p-2 DetailsCart">
+                                    <form action="">
+                                        <div class="col-md">
+                                            <div class=" fontSize1Cart">${product[item.name].name}</div>
+                                            <p class="row" id="romCart"><span class="col-md-2 d-flex justify-content-start">RAM: ${product[item.name].ram} GB</span> <span class="col-md d-flex justify-content-start">ROM: ${product[item.name].rom} GB</span></p>
+                                            <p class="" id="processorCart">Processor: ${product[item.name].processor}</p>
+                                            <p class=""><span id="priceCart"><b>Price:</b><span id="priceVal2"> ₹${product[item.name].price}.00</span></span></p>
+                                        </div>                                        
+                                    </form>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-dark btn-outline-warning d-flex justify-content-center col-md-8 buyNow" type="button">Place Order</button>                 
+                                </div>
+                            </div>
+                            <div class="bill  d-flex justify-content-center col-md-3 p-3">
+                                <div class="col">
+                                    <div class="row p-2">
+                                        <table class="table-responsive">
+                                            <tbody class="col-md-12">
+                                                <tr>
+                                                    <td class="col-md-6 border-bottom">Price</td>
+                                                    <td class="col-md-6 border-bottom">₹${product[item.name].price}/-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-md-6 border-bottom">Tax</td>
+                                                    <td class="col-md-6 border-bottom">₹0/</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-md-6 border-bottom">Delivery Charge</td>
+                                                    <td class="col-md-6 border-bottom">Free</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-md-6 border-bottom">Qty</td>
+                                                    <td class="col-md-6 border-bottom">
+                                                        <div class="qtyCount d-flex justify-content-center">
+                                                        <div class="minus" onclick="minus(${item.name})"><i class="fas fa-minus-circle m-1"></i></div>
+                                                        <div><input class="qty" type="text" value="${item.qty}" disabled></div>
+                                                        <div class="plus"  onclick="plus(${item.name})"><i class="fas fa-plus-circle m-1"></i></div></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="col-md-6">Total</th>
+                                                    <th class="col-md-6">₹${((product[item.name].price).replaceAll(",","")*item.qty)}/-</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <footer class="row m-1">
+                                        <button class="btn btn-dark btn-outline-warning d-flex justify-content-center col-md-8 buyNow1" type="button">Place Order</button>                 
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>`;
+    newCreatedData=document.createElement('div');
+    newCreatedData.innerHTML=createdData;
+    return newCreatedData;
+}); 
+
+let cartSuper = localStorage.getItem("cartSuper") ? JSON.parse(localStorage.getItem("cartSuper")) :[];
+
+const nameOfTheProduct = name => cartSuper.indexOf(cartSuper.find(n=>n.name===name));
+
+const popCount=(()=>{
+    if(cartContainer){
+        for(let u=0;u<cartSuper.length;u++){
+            cartContainer.append(tempCart(cartSuper[u]));
+    }}
+    else{
+    supPop.innerHTML ="";
+    cartSuper.reduce((accu,itemNum)=>accu+=itemNum.qty,0)>0 ? supPop.append(cartSuper.reduce((accu,itemNum)=>accu+=itemNum.qty,0)) : supPop.append(0);
+    }
+});
+
+
+popCount();
+
+const addToCart= name =>{
+    if(cartSuper.length > 0){
+        nameOfTheProduct(name)>-1?cartSuper[nameOfTheProduct(name)].qty+=1 :cartSuper.push({name,qty:1});
+    }
+    else{
+        cartSuper.push({name,qty:1});
+    }
+    localStorage.setItem('cartSuper',JSON.stringify(cartSuper));
+    
+    popCount();
+};
+ 
 
 const tempDisplay=(()=>{
     const createData = `<div class="d-flex justify-content-center fontSize">${product[x].name}</div> 
@@ -272,7 +408,6 @@ const tempDisplay=(()=>{
                         <div class="p-3 d-flex justify-content-center"> 
                             <button class="btn btn-warning" onclick="ViewDetails(${x})" type="button">View Details</button> 
                         </div> `;
-
     newCreateData=document.createElement('div');
     newCreateData.setAttribute("class","col-md-3");
     newCreateData.setAttribute("id","product");
@@ -306,6 +441,7 @@ const tempError=(()=>{
     newCreateData.innerHTML=createData;
     return newCreateData;
 });
+
 
 // func to pront thhe product datails
 const getData=(()=>{
