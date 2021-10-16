@@ -356,7 +356,7 @@ const tempCart=((item)=>{
                                             </tbody>
                                         </table>
                                     </div>
-                                    <footer class="row m-1">
+                                    <footer class="row placeOrder">
                                         <button class="btn btn-dark btn-outline-warning d-flex justify-content-center col-md-8 buyNow1" type="button">Place Order</button>                 
                                     </footer>
                                 </div>
