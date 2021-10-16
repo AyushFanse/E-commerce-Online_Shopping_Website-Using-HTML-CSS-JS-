@@ -472,3 +472,9 @@ box-shadow: 0 0 6px rgb(0, 0, 0);
     .placeOrder{
         padding: 30px;
 }   }
+.avtarBack{
+    width: 100px;
+}
+.rough{
+    width:70px;
+}
