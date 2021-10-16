@@ -313,7 +313,7 @@ const tempCart=((item)=>{
                                     <form action="">
                                         <div class="col-md">
                                             <div class=" fontSize1Cart">${product[item.name].name}</div>
-                                            <p class="row" id="romCart"><span class="col-md-2 d-flex justify-content-start">RAM: ${product[item.name].ram} GB</span> <span class="col-md d-flex justify-content-start">ROM: ${product[item.name].rom} GB</span></p>
+                                            <p class="row" id="romCart"><span class="col-md-4 d-flex justify-content-start">RAM: ${product[item.name].ram} GB</span> <span class="col-md d-flex justify-content-start">ROM: ${product[item.name].rom} GB</span></p>
                                             <p class="" id="processorCart">Processor: ${product[item.name].processor}</p>
                                             <p class=""><span id="priceCart"><b>Price:</b><span id="priceVal2"> ₹${product[item.name].price}.00</span></span></p>
                                         </div>                                        
