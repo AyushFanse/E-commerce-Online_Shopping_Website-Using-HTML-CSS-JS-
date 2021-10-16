@@ -495,3 +495,7 @@ box-shadow: 0 0 6px rgb(0, 0, 0);
     justify-content: center;
     vertical-align: middle;
 }
+@media (max-width: 768px) {
+    #reset {
+        margin-right: 21px; 
+}   }
