@@ -334,7 +334,7 @@ const tempCart=((item)=>{
                                                 </tr>
                                                 <tr>
                                                     <td class="col-md-6 border-bottom">Tax</td>
-                                                    <td class="col-md-6 border-bottom">₹0/</td>
+                                                    <td class="col-md-6 border-bottom">₹18/-</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="col-md-6 border-bottom">Delivery Charge</td>
@@ -351,7 +351,7 @@ const tempCart=((item)=>{
                                                 </tr>
                                                 <tr>
                                                     <th class="col-md-6">Total</th>
-                                                    <th class="col-md-6">₹${((product[item.name].price).replaceAll(",","")*item.qty)}/-</th>
+                                                    <th class="col-md-6">₹${((product[item.name].price).replaceAll(",","")*item.qty+18)}/-</th>
                                                 </tr>
                                             </tbody>
                                         </table>
