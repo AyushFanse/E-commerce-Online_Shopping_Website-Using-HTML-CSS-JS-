@@ -47,8 +47,9 @@ nav{
 .imgBack{
     border: 7px solid #6b6b90;
     background:white;
-    border-radius:5px;
+    border-radius:20px;
     width: 400px;
+    box-shadow: 0 0 9px rgb(0, 0, 0);
 }
 .home{
     color: #ffd900;
@@ -139,6 +140,12 @@ nav{
     font-size: 18px;
     font-weight: bold;
 }
+@media (max-width:1015px) {
+    @media ( min-width :770px){
+        .fontSize {
+            font-size: 10px;
+            font-weight: bold;
+}}}
 .fontSize1 {
     font-size:33px;
     font-weight: bold;
@@ -182,6 +189,9 @@ nav{
     margin: 20px;
     width: 300px;
 }
+.viewDetails{
+    box-shadow: 0 0 6px rgb(0, 0, 0);
+}
 @media (max-width:570px){
     .error{
         margin: 10px;
@@ -190,10 +200,11 @@ nav{
 #Details{
     margin-left: 10px;
 }
-.bg-image{
+.dispImg{
     border:7px solid rgb(113, 108, 121);
     background-color: #cacad6;
     border-radius:30px;
+    box-shadow: 0 0 6px rgb(0, 0, 0);
 }
 .avatar {
     width:  45px;

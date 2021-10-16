@@ -305,7 +305,7 @@ const getImgTemp=(()=>{
 const tempCart=((item)=>{
     const createdData = `<div class="mainCart d-flex justify-content-center row m-4">
                             <div class="remove d-flex justify-content-end"><span id="remove"><i class="fas fa-times"></i></span></div>
-                            <div class="img  d-flex justify-content-center col-md-2 p-3">
+                            <div class="img  d-flex justify-content-center col-md-2 p-3 bg-image hover-zoom">
                                 <img class="cartDisplay" src="${product[item.name].image}" alt="img"/>
                             </div>
                             <div class="col-md-6 p-4" id="detailsCart">
@@ -399,14 +399,14 @@ const addToCart= name =>{
  
 
 const tempDisplay=(()=>{
-    const createData = `<div class="d-flex justify-content-center fontSize">${product[x].name}</div> 
-                        <div class="p-3 d-flex justify-content-center bg-image hover-zoom"> 
+    const createData = `<div class="d-flex justify-content-center fontSize p-4">${product[x].name}</div> 
+                        <div class="p-3 d-flex justify-content-center dispImg bg-image hover-zoom"> 
                             <a class="d-flex justify-content-center beforeDisplay" href="https://fanse-online-shop.netlify.app/${product[x].image}">
                                 <img class="display" src="${product[x].image}" alt="img"/>
                             </a> 
                         </div> 
-                        <div class="p-3 d-flex justify-content-center"> 
-                            <button class="btn btn-warning" onclick="ViewDetails(${x})" type="button">View Details</button> 
+                        <div class="p-4 d-flex justify-content-center"> 
+                            <button class="btn btn-warning viewDetails" onclick="ViewDetails(${x})" type="button">View Details</button> 
                         </div> `;
     newCreateData=document.createElement('div');
     newCreateData.setAttribute("class","col-md-3");
