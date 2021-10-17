@@ -384,7 +384,6 @@ const popCount=(()=>{
     }
 });
 
-// console.log(popCount());
 popCount();
 
 const addToCart= name =>{
@@ -401,6 +400,7 @@ const addToCart= name =>{
 
 const reset = (()=>{
     localStorage.removeItem(`cartSuper`);
+    cartContainer.innerHTML = '';
 })
 
 const remove=((x)=>{
