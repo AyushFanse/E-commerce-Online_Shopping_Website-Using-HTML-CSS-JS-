@@ -80,7 +80,7 @@ let product = [
         price: `1,39,900`,
         rom:`256`,
         ram:`6`,
-        processor:`A15 Bionic Chip`,
+        processor:`A15 Bionic Chipset`,
         battry: `5000`,
     },
     {
@@ -125,7 +125,7 @@ let product = [
         price: `65,999`,
         rom:`256`,
         ram:`8`,
-        processor:`Snapdragon 888 5G chipset`,
+        processor:`Snapdragon 888 5G`,
         battry: `5000`,
     },
     {
