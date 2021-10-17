@@ -384,7 +384,7 @@ const popCount=(()=>{
     }
 });
 
-console.log(popCount());
+// console.log(popCount());
 popCount();
 
 const addToCart= name =>{
