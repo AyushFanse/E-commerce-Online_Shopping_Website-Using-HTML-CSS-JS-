@@ -1,13 +1,14 @@
 // Defining variables
-var data = document.querySelector('.displayItoms');
-var brandDataPage = document.querySelector('.displayBrands');
-var cartContainer = document.querySelector('.cartDetails');
+let data = document.querySelector('.displayItoms');
+let brandDataPage = document.querySelector('.displayBrands');
+let cartContainer = document.querySelector('.cartDetails');
 let searchData = document.querySelector("#searchData");
 let searchBrand = document.querySelector("#searchBrand");
 let supPop = document.querySelector("sup");
 let itemQty = document.querySelector(".qty");
-let createData="", newCreateData="", garbage=0, errImg=22, x="",popo="",cartDataCollection="";
-
+let createData="", newCreateData="", garbage=0, errImg=22, x="",popo="", cartDataCollection="";
+let cartSuper = localStorage.getItem("cartSuper") ? JSON.parse(localStorage.getItem("cartSuper")) :[];
+const nameOfTheProduct = name => cartSuper.indexOf(cartSuper.find(n=>n.name===name));
 
 // Created my own Product object.
 let product = [
@@ -59,7 +60,7 @@ let product = [
     {
         name:"Motorola G40 Fusion",
         image:"img/Motorola G40 Fusion.png",
-        price: `14,999`,
+        price: `16,599`,
         rom:`128`,
         ram:`6`,
         processor:`Qualcomm Snapdragon 732G`,
@@ -80,7 +81,7 @@ let product = [
         price: `1,39,900`,
         rom:`256`,
         ram:`6`,
-        processor:`A15 Bionic Chipset`,
+        processor:`A15 Bionic Chip`,
         battry: `5000`,
     },
     {
@@ -125,7 +126,7 @@ let product = [
         price: `65,999`,
         rom:`256`,
         ram:`8`,
-        processor:`Snapdragon 888 5G`,
+        processor:`Snapdragon 888 5G chipset`,
         battry: `5000`,
     },
     {
@@ -303,9 +304,8 @@ const getImgTemp=(()=>{
 
 
 const tempCart=((item)=>{
-    // console.log(cartSuper[item]);
     const createdData = `<div class="mainCart d-flex justify-content-center row m-4">
-                            <div class="remove d-flex justify-content-end"><span id="remove" onclick="remove(${item})"><i class="fas fa-times"></i></span></div>
+                            <div class="remove d-flex justify-content-end"><span id="remove" onclick="remove(${item.name})"><i class="fas fa-times"></i></span></div>
                             <div class="img  d-flex justify-content-center col-md-2 p-3 bg-image hover-zoom">
                                 <img class="cartDisplay" src="${product[item.name].image}" alt="img"/>
                             </div>
@@ -368,16 +368,13 @@ const tempCart=((item)=>{
     return newCreatedData;
 }); 
 
-let cartSuper = localStorage.getItem("cartSuper") ? JSON.parse(localStorage.getItem("cartSuper")) :[];
-
-const nameOfTheProduct = name => cartSuper.indexOf(cartSuper.find(n=>n.name===name));
 
 const popCount=(()=>{
     if(cartContainer){
         for(let u=0;u<cartSuper.length;u++){
-            // console.log(cartSuper[u]);
             cartContainer.append(tempCart(cartSuper[u]));
-    }}
+    }
+    }
     else{
     supPop.innerHTML ="";
     cartSuper.reduce((accu,itemNum)=>accu+=itemNum.qty,0)>0 ? supPop.append(cartSuper.reduce((accu,itemNum)=>accu+=itemNum.qty,0)) : supPop.append(0);
@@ -398,17 +395,52 @@ const addToCart= name =>{
     popCount();
 };
 
+const subToCart= name =>{
+    
+    if(cartSuper.length > 0){
+        nameOfTheProduct(name)>-1?cartSuper[nameOfTheProduct(name)].qty-=1 :cartSuper.push({name,qty:1});
+    }
+
+    else if(qty>0){
+        cartSuper.push({name,qty:1});
+    }
+    localStorage.setItem('cartSuper',JSON.stringify(cartSuper));
+    
+    popCount();
+    
+}
+
 const reset = (()=>{
+    cartContainer.innerHTML="";
     localStorage.removeItem(`cartSuper`);
-    cartContainer.innerHTML = '';
 })
 
-const remove=((x)=>{
-    // console.log(x);
-    // localStorage.removeItem(`cartSuper[${x}]`);
-    // cartContainer.innerHTML = '';
-    // popCount();
- });
+const remove = ((x)=>{
+    for(let i=0; i<cartSuper.length; i++){
+        if(x===cartSuper[i].name){
+            cartSuper.splice(i, 1);
+        }   }
+    
+    cartContainer.innerHTML="";
+    localStorage.setItem("cartSuper",JSON.stringify(cartSuper));
+    popCount();
+});
+
+const plus=((x)=>{
+    cartContainer.innerHTML="";
+    addToCart(x);
+});
+
+const minus=((x)=>{
+    if(cartSuper[nameOfTheProduct(x)].qty>1){
+    cartContainer.innerHTML="";
+    subToCart(x);
+    }
+    else{
+        console.log(x);
+        remove(x);
+    }
+});
 
 const tempDisplay=(()=>{
     const createData = `<div class="d-flex justify-content-center fontSize p-4">${product[x].name}</div> 
@@ -454,7 +486,6 @@ const tempError=(()=>{
     return newCreateData;
 });
 
-
 // func to print the product datails
 const getData=(()=>{
     data.append(tempDisplay());
@@ -469,7 +500,7 @@ const home=(()=>{
     for (let i = 0; i < product.length; i++) {
             x=i;
             getData();
-    };
+        }
 });
 
 // Display function to search mobiles with their brand name
@@ -484,8 +515,7 @@ const display=((n)=>{
         }
         else{
             createData="none";
-        }
-    }
+    }   }
 });
 
 // search function.
@@ -513,9 +543,7 @@ const search=(()=>{
             }
             else{
                 error();
-            }
-        }
-    }
+    }   }   }
 });
 
 const searchBrands=(()=>{
@@ -535,15 +563,11 @@ const searchBrands=(()=>{
             }
             else{
                 brandError();
-            }
-        }
-    }
+}   }   }
 });
-
 
 //Adding Products to the cart
 const ViewDetails=((n)=>{
-
     if(data){
         data.innerHTML="";
         x=n;
@@ -556,11 +580,9 @@ const ViewDetails=((n)=>{
     }
 });
 
-
 const error=(()=>{
    data.append(tempError());
 });
-
 
 const brand=(()=>{
     brandDataPage.innerHTML="";
@@ -577,10 +599,9 @@ const ditect=(()=>{
 
 ditect();
 
-
 const brandError=(()=>{
     brandDataPage.append(tempError());
-    });
+});
                 
 function Open() {
     document.getElementById("mySidebar").style.display = "block";
