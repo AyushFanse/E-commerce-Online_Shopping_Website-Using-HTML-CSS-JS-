@@ -10,7 +10,7 @@ let createData="", newCreateData="", garbage=0, errImg=22, x="",popo="", cartDat
 let cartSuper = localStorage.getItem("cartSuper") ? JSON.parse(localStorage.getItem("cartSuper")) :[];
 const nameOfTheProduct = name => cartSuper.indexOf(cartSuper.find(n=>n.name===name));
 
-// Created my own Product object.
+// Created my own Product Array.
 let product = [
     {
         name:"Realme x50 pro",
