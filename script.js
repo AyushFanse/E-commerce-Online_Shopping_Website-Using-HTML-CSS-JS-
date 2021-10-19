@@ -10,7 +10,7 @@ let createData="", newCreateData="", garbage=0, errImg=22, x="",popo="", cartDat
 let cartSuper = localStorage.getItem("cartSuper") ? JSON.parse(localStorage.getItem("cartSuper")) :[];
 const nameOfTheProduct = name => cartSuper.indexOf(cartSuper.find(n=>n.name===name));
 
-// Created my own Product Array.
+// Created my own Product Array objects.
 let product = [
     {
         name:"Realme x50 pro",
@@ -203,6 +203,7 @@ let product = [
     },
 ];
 
+// Created my own Brand Array object.
 let brands = [
     {
         brandName:"Realme",
@@ -270,14 +271,22 @@ let brands = [
     },
 ];
 
-const getImgForDisplay=(()=>{
-    data.append(getImgTemp());
-});
 
-const getImgForBrand=(()=>{
-    brandDataPage.append(getImgTemp());
-});
+//Overlayer functions.
+function Open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
 
+function Close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+
+//Templates for the screen displays.
+
+//Home Page Display Template.
 const getImgTemp=(()=>{
     const createData = `<div class="col-md-6 d-flex justify-content-center"> 
                             <a class="imgBack d-flex justify-content-center" href="https://fanse-online-shop.netlify.app/${product[x].image}">
@@ -302,7 +311,40 @@ const getImgTemp=(()=>{
     return newCreateData;
 });
 
+//View Details template for the Home Page.
+const tempDisplay=(()=>{
+    const createData = `<div class="d-flex justify-content-center fontSize p-4">${product[x].name}</div> 
+                        <div class="p-3 d-flex justify-content-center dispImg bg-image hover-zoom"> 
+                            <a class="d-flex justify-content-center beforeDisplay" href="https://fanse-online-shop.netlify.app/${product[x].image}">
+                                <img class="display" src="${product[x].image}" alt="img"/>
+                            </a> 
+                        </div> 
+                        <div class="p-4 d-flex justify-content-center"> 
+                            <button class="btn btn-warning viewDetails" onclick="ViewDetails(${x})" type="button">View Details</button> 
+                        </div> `;
+    newCreateData=document.createElement('div');
+    newCreateData.setAttribute("class","col-md-3");
+    newCreateData.setAttribute("id","product");
+    newCreateData.innerHTML=createData;
+    return newCreateData;
+});
 
+//Brand Page Display Template.
+const brandDataTemp=((x)=>{
+    const createBrand =
+                    `<div class="p-2 d-flex justify-content-center"> 
+                    <button class="btn btn-light icon" onclick="display('${brands[x].brandName}')" id="searchBand" type="button">
+                    <img id="icon" src="${brands[x].icon}" alt="icon"> 
+                    </button> 
+                    </div>`;
+    newCreateBrand=document.createElement('div');
+    newCreateBrand.setAttribute("class","col-md-2");
+    newCreateBrand.setAttribute("id","product");
+    newCreateBrand.innerHTML=createBrand;
+    brandDataPage.append(newCreateBrand);
+});
+
+//Cart Page Display Template.
 const tempCart=((item)=>{
     const createdData = `<div class="mainCart d-flex justify-content-center row m-4">
                             <div class="remove d-flex justify-content-end"><span id="remove" onclick="remove(${item.name})"><i class="fas fa-times"></i></span></div>
@@ -352,7 +394,7 @@ const tempCart=((item)=>{
                                                 </tr>
                                                 <tr>
                                                     <th class="col-md-6">Total</th>
-                                                    <th class="col-md-6">₹${((product[item.name].price).replaceAll(",","")*item.qty+18)}/-</th>
+                                                    <th class="col-md-6">₹${commaSeparatorTemp(((product[item.name].price).replaceAll(",","")*item.qty+18))}/-</th>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -368,7 +410,68 @@ const tempCart=((item)=>{
     return newCreatedData;
 }); 
 
+const commaSeparatorTemp = ((n)=>{
+	n = n + "";    
+    let a = n.split("").reverse().join("");
+    let b ="";
+    for (var i = 0; i <a.length; i++) {
+        if(i+1!==a.length && i%2==0 && i!=0){
+            b+=a[i]+",";
+        }
+        else{
+            b+=a[i];
+    }   }
+    return b.split("").reverse().join("");
+});
 
+//Invalide Search display Template.
+const tempError=(()=>{
+    data.innerHTML="";
+    const createData =
+                    `<h2 class="row d-flex justify-content-center m-3" id="errorImg">It's hard to find...!</h2>
+                    <div class="row d-flex justify-content-center">
+                    <img class="error mx-auto" src="Error 404/404 (${Math.floor(Math.random()*errImg)+1}).png" alt="">
+                    </div>`;
+    newCreateData=document.createElement('div');
+    newCreateData.setAttribute("class","row");
+    newCreateData.innerHTML=createData;
+    return newCreateData;
+});
+
+//Default called Functions.
+
+// Function to print brands.
+const brand=(()=>{
+    brandDataPage.innerHTML="";
+    for (let i = 0; i <brands.length; i++) {
+        brandDataTemp(i);
+    };
+});
+
+//Function to append data to the home page.
+const getData=(()=>{
+    data.append(tempDisplay());
+});
+
+//Function to print the product datails.
+const home=(()=>{
+    // Defaule displays all Products.
+    for (let i = 0; i < product.length; i++) {
+            x=i;
+            getData();
+        }
+});
+
+//Function to Display Items by default.
+const ditect=(()=>{
+    if(data) home();
+    // else if(cartContainer) popCount();
+    else if (brandDataPage) brand();
+});
+
+ditect();
+
+//Default Function for the Cart.
 const popCount=(()=>{
     if(cartContainer){
         for(let u=0;u<cartSuper.length;u++){
@@ -383,139 +486,11 @@ const popCount=(()=>{
 
 popCount();
 
-const addToCart= name =>{
-    if(cartSuper.length > 0){
-        nameOfTheProduct(name)>-1?cartSuper[nameOfTheProduct(name)].qty+=1 :cartSuper.push({name,qty:1});
-    }
-    else{
-        cartSuper.push({name,qty:1});
-    }
-    localStorage.setItem('cartSuper',JSON.stringify(cartSuper));
-    
-    popCount();
-};
+// All Home Page functions.
 
-const subToCart= name =>{
-    
-    if(cartSuper.length > 0){
-        nameOfTheProduct(name)>-1?cartSuper[nameOfTheProduct(name)].qty-=1 :cartSuper.push({name,qty:1});
-    }
-
-    else if(qty>0){
-        cartSuper.push({name,qty:1});
-    }
-    localStorage.setItem('cartSuper',JSON.stringify(cartSuper));
-    
-    popCount();
-    
-}
-
-const reset = (()=>{
-    cartContainer.innerHTML="";
-    localStorage.removeItem(`cartSuper`);
-})
-
-const remove = ((x)=>{
-    for(let i=0; i<cartSuper.length; i++){
-        if(x===cartSuper[i].name){
-            cartSuper.splice(i, 1);
-        }   }
-    
-    cartContainer.innerHTML="";
-    localStorage.setItem("cartSuper",JSON.stringify(cartSuper));
-    popCount();
-});
-
-const plus=((x)=>{
-    cartContainer.innerHTML="";
-    addToCart(x);
-});
-
-const minus=((x)=>{
-    if(cartSuper[nameOfTheProduct(x)].qty>1){
-    cartContainer.innerHTML="";
-    subToCart(x);
-    }
-    else{
-        console.log(x);
-        remove(x);
-    }
-});
-
-const tempDisplay=(()=>{
-    const createData = `<div class="d-flex justify-content-center fontSize p-4">${product[x].name}</div> 
-                        <div class="p-3 d-flex justify-content-center dispImg bg-image hover-zoom"> 
-                            <a class="d-flex justify-content-center beforeDisplay" href="https://fanse-online-shop.netlify.app/${product[x].image}">
-                                <img class="display" src="${product[x].image}" alt="img"/>
-                            </a> 
-                        </div> 
-                        <div class="p-4 d-flex justify-content-center"> 
-                            <button class="btn btn-warning viewDetails" onclick="ViewDetails(${x})" type="button">View Details</button> 
-                        </div> `;
-    newCreateData=document.createElement('div');
-    newCreateData.setAttribute("class","col-md-3");
-    newCreateData.setAttribute("id","product");
-    newCreateData.innerHTML=createData;
-    return newCreateData;
-}); 
-
-const brandDataTemp=((x)=>{
-    const createBrand =
-                    `<div class="p-2 d-flex justify-content-center"> 
-                    <button class="btn btn-light icon" onclick="display('${brands[x].brandName}')" id="searchBand" type="button">
-                    <img id="icon" src="${brands[x].icon}" alt="icon"> 
-                    </button> 
-                    </div>`;
-    newCreateBrand=document.createElement('div');
-    newCreateBrand.setAttribute("class","col-md-2");
-    newCreateBrand.setAttribute("id","product");
-    newCreateBrand.innerHTML=createBrand;
-    brandDataPage.append(newCreateBrand);
-});
-
-const tempError=(()=>{
-    data.innerHTML="";
-    const createData =
-                    `<h2 class="row d-flex justify-content-center m-3" id="errorImg">It's hard to find...!</h2>
-                    <div class="row d-flex justify-content-center">
-                    <img class="error mx-auto" src="Error 404/404 (${Math.floor(Math.random()*errImg)+1}).png" alt="">
-                    </div>`;
-    newCreateData=document.createElement('div');
-    newCreateData.setAttribute("class","row");
-    newCreateData.innerHTML=createData;
-    return newCreateData;
-});
-
-// func to print the product datails
-const getData=(()=>{
-    data.append(tempDisplay());
-});
-
-const getBrand=(()=>{
-    brandDataPage.append(tempDisplay());
-});
-
-const home=(()=>{
-    // Defaule displays all Products.
-    for (let i = 0; i < product.length; i++) {
-            x=i;
-            getData();
-        }
-});
-
-// Display function to search mobiles with their brand name
-const display=((n)=>{
-    brandDataPage.innerHTML="";
-    cap = n.toUpperCase();
-    for (let i=0; i<product.length; i++){
-        text=product[i].image;
-        if(text.toUpperCase().indexOf(cap)>-1){
-            x=i;
-            getBrand();
-        }
-        else{
-            createData="none";
-    }   }
+//Function to Display Item's On the Home Page.
+const getImgForDisplay=(()=>{
+    data.append(getImgTemp());
 });
 
 // search function.
@@ -546,6 +521,38 @@ const search=(()=>{
     }   }   }
 });
 
+//Function for error Messages.
+const error=(()=>{
+    data.append(tempError());
+ });
+
+// All Brand Page functions..
+
+//Function to Display Brands's On the Home Page.
+const getBrand=(()=>{
+    brandDataPage.append(tempDisplay());
+});
+
+const getImgForBrand=(()=>{
+    brandDataPage.append(getImgTemp());
+});
+
+// Display function to search mobiles with their brand name.
+const display=((n)=>{
+    brandDataPage.innerHTML="";
+    cap = n.toUpperCase();
+    for (let i=0; i<product.length; i++){
+        text=product[i].image;
+        if(text.toUpperCase().indexOf(cap)>-1){
+            x=i;
+            getBrand();
+        }
+        else{
+            createData="none";
+    }   }
+});
+
+//Function to search brands.
 const searchBrands=(()=>{
     garbage=0;
     brandDataPage.innerHTML="";
@@ -566,7 +573,25 @@ const searchBrands=(()=>{
 }   }   }
 });
 
-//Adding Products to the cart
+//Function For Error Messages.
+const brandError=(()=>{
+    brandDataPage.append(tempError());
+});
+
+// All Cart Page functions.
+const addToCart= name =>{
+    if(cartSuper.length > 0){
+        nameOfTheProduct(name)>-1?cartSuper[nameOfTheProduct(name)].qty+=1 :cartSuper.push({name,qty:1});
+    }
+    else{
+        cartSuper.push({name,qty:1});
+    }
+    localStorage.setItem('cartSuper',JSON.stringify(cartSuper));
+    
+    popCount();
+};
+
+//Adding Products to the cart.
 const ViewDetails=((n)=>{
     if(data){
         data.innerHTML="";
@@ -580,35 +605,54 @@ const ViewDetails=((n)=>{
     }
 });
 
-const error=(()=>{
-   data.append(tempError());
-});
+// Function to Reduce the quantity.
+const subToCart= name =>{
+    
+    if(cartSuper.length > 0){
+        nameOfTheProduct(name)>-1?cartSuper[nameOfTheProduct(name)].qty-=1 :cartSuper.push({name,qty:1});
+    }
 
-const brand=(()=>{
-    brandDataPage.innerHTML="";
-    for (let i = 0; i <brands.length; i++) {
-        brandDataTemp(i);
-    };
-});
-
-const ditect=(()=>{
-    if(data) home();
-    // else if(cartContainer) popCount();
-    else if (brandDataPage) brand();
-});
-
-ditect();
-
-const brandError=(()=>{
-    brandDataPage.append(tempError());
-});
-                
-function Open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
+    else if(qty>0){
+        cartSuper.push({name,qty:1});
+    }
+    localStorage.setItem('cartSuper',JSON.stringify(cartSuper));
+    
+    popCount();
+    
 }
 
-function Close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
+// Function to reset the cart page.
+const reset = (()=>{
+    cartContainer.innerHTML="";
+    localStorage.removeItem(`cartSuper`);
+})
+
+// Function to remove the Item's from the cart.
+const remove = ((x)=>{
+    for(let i=0; i<cartSuper.length; i++){
+        if(x===cartSuper[i].name){
+            cartSuper.splice(i, 1);
+        }   }
+    
+    cartContainer.innerHTML="";
+    localStorage.setItem("cartSuper",JSON.stringify(cartSuper));
+    popCount();
+});
+
+// Function to increasing the number of Quantity of the Item.
+const plus=((x)=>{
+    cartContainer.innerHTML="";
+    addToCart(x);
+});
+
+// Function to decreasing the number of Quantity of the Item.
+const minus=((x)=>{
+    if(cartSuper[nameOfTheProduct(x)].qty>1){
+    cartContainer.innerHTML="";
+    subToCart(x);
+    }
+    else{
+        console.log(x);
+        remove(x);
+    }
+});
