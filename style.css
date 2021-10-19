@@ -3,7 +3,7 @@ body{
 }
 nav{
     width: 104%;
-    background: linear-gradient(to right, #0f0c29, #1c1747, #221d53, #181446, #110e38);
+    background: linear-gradient(to right, #14344e, #254864, #2e5d83, #254864, #14344e);
 }
 .display{
     max-width: 80%;
