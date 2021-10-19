@@ -480,7 +480,7 @@ box-shadow: 0 0 6px rgb(0, 0, 0);
 }
 #reset {
     margin-right: 40px; 
-    margin-top: -63px;
+    margin-top: -50px;
     position: absolute;
     background: rgb(235, 56, 56);
     border: 3px solid rgb(182, 182, 182);
@@ -493,9 +493,11 @@ box-shadow: 0 0 6px rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     display:flex;
     justify-content: center;
-    vertical-align: middle;
 }
 @media (max-width: 768px) {
     #reset {
-        margin-right: 21px; 
+        margin-right: 8px; 
 }   }
+.myCart{
+    margin-bottom: 15px;
+}
