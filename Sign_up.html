@@ -16,18 +16,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-        <button onclick="Close()" class="w3-bar-item w3-large d-flex justify-content-center btn-danger" id="close"><i class="fas fa-angle-double-left">Close</i></button>
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;z-index:5" id="mySidebar">
+        <button onclick="Close()" class="w3-bar-item w3-large d-flex justify-content-center" id="close"><i class="fas fa-angle-double-left"> Close</i></button>
         <a href="Log_in.html" class="row m-3 d-flex justify-content-center btn btn-warning" id="patch">
             <div class="col">
                 <div class=" d-flex justify-content-center m-2"><img src="a.png" alt="Avatar" class="row avatar"></div>
-                <div class=" d-flex justify-content-center"><b>login</b></div>
+                <div class=" d-flex justify-content-center" id="bubbleLog"><span>login</span></div>
             </div>
         </a>
-        <a href="index.html" class="w3-bar-item w3-button d-flex justify-content-center m-3"  id="bubble"><b>Home</b></a>
-        <a href="Brand_Page.html" class="w3-bar-item m-3 w3-button d-flex justify-content-center" id="bubble"><b>Brand</b></a>
-        <a href="cart.html" class="w3-bar-item w3-button m-3 d-flex justify-content-center" id="bubble" ><b>Cart</b></a>
+        <a href="index.html" class="d-flex justify-content-center" id="bubble"><span>Home</span></a>
+        <a href="Brand_Page.html" class="m-3 d-flex justify-content-center" id="bubble"><span>Brand</span></a>
+        <a href="cart.html" class="m-3 d-flex justify-content-center" id="bubble" ><span>Cart</span></a>
     </div>
+    <div class="w3-overlay" onclick="Close()" style="cursor:pointer" id="myOverlay"></div>
     <nav class="row navbar-nav">
         <div class="p-2 d-flex justify-content-center">
             <div class="col-md-1 d-flex justify-content-center avtarBack">
@@ -86,6 +87,6 @@
         </div>
     </form>
 </body>
-<script src="script.js"></script> 
+<script src="script.js"></script>
 </html>
 

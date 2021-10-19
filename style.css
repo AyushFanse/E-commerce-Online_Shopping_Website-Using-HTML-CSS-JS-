@@ -210,7 +210,7 @@ nav{
     width:  45px;
     height: 45px;
     background:rgb(174, 255, 0);
-    border: 1px solid rgb(255, 0, 0);
+    border: 3px solid rgb(255, 0, 0);
     border-radius: 25% 75% 25% 75% / 75% 25% 75% 25%;
 }
 #searchBand{
@@ -238,7 +238,7 @@ nav{
 }
 @media (max-width: 576px) { 
     .company{
-        font-size: 35px;
+        font-size:35px;
 }   }
 @media (max-width: 1175px) { 
     .company{
@@ -265,7 +265,7 @@ nav{
     margin: auto;
 }
 #close{
-    background: linear-gradient(to right, #e52d27, #b31217);
+    background: linear-gradient(to right, #ec2d26, #fa3b35, #d31d23);
     color: #fff;
     width: 85%;
     margin:auto;
@@ -274,19 +274,32 @@ nav{
 }
 #bubble{
     width: 85%;
+    height: 38px;
     margin:auto;
-    border-radius: 100px;
-    background: #342a8a;
-    color: #fff;
+    border-radius: 15px;
+    background: rgb(255, 196, 0);
+    border: 2px solid rgb(46, 46, 45);
+    color:rgb(46, 46, 45);
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#bubbleLog{
+    color:rgb(46, 46, 45);
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 #mySidebar{
-    background: linear-gradient(to right, #4ac29a, #bdfff3);
+    background:teal;
 }
 #patch{
     border-radius: 20px;
+    border: 2px solid rgb(46, 46, 45);
+    color:rgb(46, 46, 45);
 }
-#patch:hover{
-    background:rgb(209, 190, 190);
+#patch:hover, #bubble:hover{
+    color:rgb(209, 190, 190);
+    border: 2px solid rgb(209, 190, 190);
+    background:rgb(46, 46, 45);    
 }
 #priceVal2{
     font-size:30px;

@@ -67,7 +67,7 @@ let product = [
         battry: `6000`,
     },
     {
-        name:"ROG Phone 5 Ultimate",
+        name:"ROG Phone 5",
         image:"img/Asus ROG Phone 5 Ultimate.png",
         price: `49,999`,
         rom:`128`,
@@ -271,7 +271,6 @@ let brands = [
     },
 ];
 
-
 //Overlayer functions.
 function Open() {
     document.getElementById("mySidebar").style.display = "block";
@@ -282,7 +281,6 @@ function Close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
-
 
 //Templates for the screen displays.
 
