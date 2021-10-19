@@ -67,7 +67,7 @@ let product = [
         battry: `6000`,
     },
     {
-        name:"ROG Phone 5",
+        name:"ROG Phone 5 Ultimate",
         image:"img/Asus ROG Phone 5 Ultimate.png",
         price: `49,999`,
         rom:`128`,
