@@ -240,7 +240,7 @@ nav{
     .company{
         font-size: 35px;
 }   }
-@media (max-width: 1017px) { 
+@media (max-width: 1175px) { 
     .company{
         margin-top:3px;
         font-size: 25px;
