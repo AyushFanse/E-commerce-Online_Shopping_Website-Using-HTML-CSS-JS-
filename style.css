@@ -296,6 +296,10 @@ nav{
     border: 2px solid rgb(46, 46, 45);
     color:rgb(46, 46, 45);
 }
+#bubbleLog:hover{
+    transition: 1s;
+    color:rgb(209, 190, 190);
+}
 #patch:hover, #bubble:hover{
     color:rgb(209, 190, 190);
     border: 2px solid rgb(209, 190, 190);
