@@ -518,3 +518,7 @@ box-shadow: 0 0 6px rgb(0, 0, 0);
 .myCart{
     margin-bottom: 15px;
 }
+.addToCart:hover{
+    border-color: rgb(255, 196, 0);
+    color: rgb(255, 196, 0);
+}
